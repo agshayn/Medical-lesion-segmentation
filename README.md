@@ -45,7 +45,7 @@ Nous avons développé et testé 3 méthodes :
 
 Les méthodes ont été évaluées via le score **Dice**.
 
-* 🏆 **Meilleure méthode :** L'approche par Texture (**LBP Clustering**) offre le meilleur compromis robustesse/précision.
+* **Meilleure méthode :** L'approche par Texture (**LBP Clustering**) offre le meilleur compromis robustesse/précision.
 * **Otsu :** Très rapide et efficace sur les lésions contrastées, mais sensible aux ombres.
 * **SRM :** Performant sur les cas simples, mais décroche sur les mélanomes complexes (hétérogènes).
 
@@ -58,3 +58,10 @@ Le projet nécessite Python et les librairies scientifiques classiques.
 
 ```bash
 pip install numpy matplotlib scikit-image scipy scikit-learn opencv-python-headless
+
+### Clonez ce dépot
+git clone https://github.com/agshayn/Medical-lesion-segmentation.git
+cd Medical-lesion-segmentation/segmentation
+
+### Lancez le notebook princpal
+jupyter notebook code_final.ipynb
