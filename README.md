@@ -58,10 +58,15 @@ Le projet nécessite Python et les librairies scientifiques classiques.
 
 ```bash
 pip install numpy matplotlib scikit-image scipy scikit-learn opencv-python-headless
+```
 
 ### Clonez ce dépot
+```bash
 git clone https://github.com/agshayn/Medical-lesion-segmentation.git
 cd Medical-lesion-segmentation/segmentation
+```
 
 ### Lancez le notebook princpal
+```bash
 jupyter notebook code_final.ipynb
+```
