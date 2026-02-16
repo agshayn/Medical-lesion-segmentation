@@ -1,22 +1,21 @@
-# IM01 - Segmentation de Lésions Cutanées 🩺📸
+# IM01 - Segmentation de Lésions Cutanées 
 
 > **Projet académique - Télécom Paris (2025-2026)** > **Auteurs :** Théophile NADIEDJOA & Agshay NADANAKUMAR  
 > **Encadrant :** M. Pietro GORI  
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Scikit-Image](https://img.shields.io/badge/Library-Scikit--Image-orange) ![Status](https://img.shields.io/badge/Status-Completed-success)
 
-## 📋 Description
+## Description
 
 Ce projet vise à développer une chaîne de traitement d'image automatisée pour la segmentation de lésions cutanées (mélanomes et nævus) à partir d'images dermoscopiques.
 
 **La contrainte majeure :** Utilisation exclusive de techniques de **traitement d'image classique** (Computer Vision).  
-🚫 **Interdiction stricte d'utiliser du Deep Learning** (pas de CNN, U-Net, etc.).
+ **Interdiction stricte d'utiliser du Deep Learning** (pas de CNN, U-Net, etc.).
 
 L'objectif est de produire un masque binaire précis isolant la lésion pour aider au diagnostic médical (CAD - Computer Aided Diagnosis).
 
 ---
 
-## 🛠️ Méthodologie
+##  Méthodologie
 
 Nous avons implémenté et comparé trois approches distinctes pour segmenter les lésions :
 
@@ -41,7 +40,7 @@ Nous avons développé et testé 3 méthodes :
 
 ---
 
-## 📊 Résultats
+## Résultats
 
 Les méthodes ont été évaluées via le score **Dice**.
 
@@ -51,7 +50,7 @@ Les méthodes ont été évaluées via le score **Dice**.
 
 ---
 
-## 💻 Installation et Utilisation
+## Installation et Utilisation
 
 ### Pré-requis
 Le projet nécessite Python et les librairies scientifiques classiques.
