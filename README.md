@@ -1,71 +1,78 @@
-# IM01 - Segmentation de Lésions Cutanées 
+# IM01 - Skin Lesion Segmentation
 
-> **Projet académique - Télécom Paris (2025-2026)** > **Auteurs :** Théophile NADIEDJOA & Agshay NADANAKUMAR  
-> **Encadrant :** M. Pietro GORI  
-
+> **Academic project - Télécom Paris (2025-2026)**
+> **Authors:** Théophile NADIEDJOA & Agshay NADANAKUMAR
+> **Supervisor:** M. Pietro GORI
 
 ## Description
 
-Ce projet vise à développer une chaîne de traitement d'image automatisée pour la segmentation de lésions cutanées (mélanomes et nævus) à partir d'images dermoscopiques.
+This project aims to develop an automated image processing pipeline for the segmentation of skin lesions (melanomas and nevi) from dermoscopic images.
 
-**La contrainte majeure :** Utilisation exclusive de techniques de **traitement d'image classique** (Computer Vision).  
- **Interdiction stricte d'utiliser du Deep Learning** (pas de CNN, U-Net, etc.).
+**Key constraint:** Exclusive use of **classical image processing** techniques (Computer Vision).
+**Deep Learning is strictly forbidden** (no CNN, U-Net, etc.).
 
-L'objectif est de produire un masque binaire précis isolant la lésion pour aider au diagnostic médical (CAD - Computer Aided Diagnosis).
+The goal is to produce an accurate binary mask isolating the lesion to assist medical diagnosis (CAD - Computer Aided Diagnosis).
 
 ---
 
-##  Méthodologie
+## Methodology
 
-Nous avons implémenté et comparé trois approches distinctes pour segmenter les lésions :
+We implemented and compared three distinct approaches to segment the lesions:
 
-### 1. Prétraitement (Preprocessing)
-Avant la segmentation, chaque image subit un nettoyage rigoureux :
-* **Suppression du cadre noir (Vignettage) :** Détection adaptative du disque de peau via composantes connexes.
-* **Suppression des poils (Hair Removal) :** Algorithme **"Macro-DullRazor"** amélioré (Fermeture morphologique avec éléments structurants larges et reconstruction par interpolation).
+### 1. Preprocessing
 
-### 2. Algorithmes de Segmentation
-Nous avons développé et testé 3 méthodes :
+Before segmentation, each image undergoes rigorous cleaning:
 
-| Méthode | Type | Description |
+- **Black frame removal (Vignetting):** Adaptive detection of the skin disk via connected components.
+- **Hair removal:** Improved **"Macro-DullRazor"** algorithm (morphological closing with large structuring elements and interpolation-based reconstruction).
+
+### 2. Segmentation Algorithms
+
+We developed and tested 3 methods:
+
+| Method | Type | Description |
 | :--- | :--- | :--- |
-| **Otsu Multi-Canal** | Histogramme | Seuillage automatique optimal sur les canaux R, G et B combinés, affiné par contours actifs (Chan-Vese). |
-| **LBP Clustering** | Texture | Utilisation des **Local Binary Patterns** (Texture) et de l'espace couleur **CIE Lab**, segmentés par **K-Means**. |
-| **SRM (Statistical Region Merging)** | Région | Fusion statistique de régions basée sur la luminosité, le contraste et la saturation (optimisé pour la peau). |
+| **Multi-Channel Otsu** | Histogram | Optimal automatic thresholding on combined R, G and B channels, refined by active contours (Chan-Vese). |
+| **LBP Clustering** | Texture | Uses **Local Binary Patterns** (texture) and the **CIE Lab** color space, segmented by **K-Means**. |
+| **SRM (Statistical Region Merging)** | Region | Statistical region merging based on brightness, contrast, and saturation (optimized for skin). |
 
-### 3. Post-traitement
-* Nettoyage morphologique (Ouverture/Fermeture).
-* Remplissage des trous (Hole filling).
-* Lissage des bords.
+### 3. Post-processing
 
----
-
-## Résultats
-
-Les méthodes ont été évaluées via le score **Dice**.
-
-* **Meilleure méthode :** L'approche par Texture (**LBP Clustering**) offre le meilleur compromis robustesse/précision.
-* **Otsu :** Très rapide et efficace sur les lésions contrastées, mais sensible aux ombres.
-* **SRM :** Performant sur les cas simples, mais décroche sur les mélanomes complexes (hétérogènes).
+- Morphological cleanup (Opening/Closing).
+- Hole filling.
+- Edge smoothing.
 
 ---
 
-## Installation et Utilisation
+## Results
 
-### Pré-requis
-Le projet nécessite Python et les librairies scientifiques classiques.
+Methods were evaluated using the **Dice score**.
+
+- **Best method:** The texture-based approach (**LBP Clustering**) offers the best robustness/precision trade-off.
+- **Otsu:** Very fast and effective on high-contrast lesions, but sensitive to shadows.
+- **SRM:** Performs well on simple cases, but struggles with complex (heterogeneous) melanomas.
+
+---
+
+## Installation & Usage
+
+### Requirements
+
+The project requires Python and standard scientific libraries.
 
 ```bash
 pip install numpy matplotlib scikit-image scipy scikit-learn opencv-python-headless
 ```
 
-### Clonez ce dépot
+### Clone the repository
+
 ```bash
 git clone https://github.com/agshayn/Medical-lesion-segmentation.git
 cd Medical-lesion-segmentation/segmentation
 ```
 
-### Lancez le notebook princpal
+### Run the main notebook
+
 ```bash
 jupyter notebook code_final.ipynb
 ```
